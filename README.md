@@ -17,13 +17,13 @@ An easy-to-use web application built using Django and Python for managing and tr
 
 ## Screenshots
 1. **Home Page**
-![Home Page Screenshot](screenshot/home_page.png)
+![Home Page Screenshot](screenshots/home_page.png)
 
 2. **Expense List**
-![Expense List Screenshot](screenshot/expense_list.png)
+![Expense List Screenshot](screenshots/expense_list.png)
 
 3. **Monthly Expenses Bar**
-![Monthly Expenses Bar Screenshot](screenshot/monthly_expenses.png)
+![Monthly Expenses Bar Screenshot](screenshots/monthly_expenses.png)
 
 ## Usage
 
