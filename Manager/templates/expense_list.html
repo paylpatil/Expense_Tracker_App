@@ -1,0 +1,105 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'expense_list.css' %}">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+{% block content %}
+<body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var longTermCheckBox = $('#id_long_term');
+      var longTermFields = $('#interest_rate, #end_date');
+      
+      longTermFields.hide();
+
+      longTermCheckBox.on('change', function () {
+        if (longTermCheckBox.is(':checked')) {
+          longTermFields.show();
+        } else {
+          longTermFields.hide();
+        }
+      });
+    });
+  </script>
+
+  <div class="main">
+    <div class="heading">
+      <h1> ExpenseHub </h1>
+    </div>
+    <div class="main-1">
+      <div class="graph">
+        <div class="bar-chart">
+          <h2> Monthly Expenses Bar Chart </h2>
+          <div class="plotly_chart" id="plotly_chart"></div>
+        </div>
+      </div>
+      <div class="expenses">
+        <h2> Expense List </h2>
+
+        <div class="expenses">
+          {% for year_month, expenses in expense_data.items %}
+          <div class="month">
+            <h3> Month: {{ year_month }} </h3>
+            {% for expense in expenses %}
+            <div class="exp_list">
+              <div class="left">
+                <h2> {{ expense.name }} </h2>
+                {% if expense.long_term %}
+                <span class="date"> Date - From: {{ expense.date }} <br> To: {{ expense.end_date }}</span>
+                {% else %}
+                <span class="date"> Date: {{ expense.date }} </span>
+                {% endif %}
+              </div>
+              <div class="right">
+                <h2>${{ expense.amount }}</h2>
+              </div>
+            </div>
+            <br>
+            {% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="lower">
+        <div class="exp_form">
+          <h2> Add Long Term Liability Or One Time Expense </h2>
+          <form method="post">
+            {% csrf_token %}
+            {{ form.long_term.label_tag }}
+            {{ form.long_term }}
+            <br><br>
+            {{ form.name.label_tag }}
+            {{ form.name }}     
+            {{ form.amount.label_tag }}
+            {{ form.amount }}
+            <br><br>
+            {{ form.date.label_tag }}
+            {{ form.date }}
+            <br><br>
+
+            <div id="end_date">
+              {{ form.end_date.label_tag }}
+              {{ form.end_date }}
+            </div>
+
+            <div id="interest_rate">
+              {{ form.interest_rate.label_tag }}
+              {{ form.interest_rate }}
+            </div><br>
+
+            <button type="submit" class="sub"> Add Liability </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var graphData = {{ graph_data | safe }};
+      Plotly.newPlot('plotly_chart', graphData.data, graphData.layout);
+    </script>
+  </div>
+</body>
+{% endblock %}

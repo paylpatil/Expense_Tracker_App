@@ -1,0 +1,139 @@
+/* expense_list.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F3F0FF; /* Soft lavender background */
+    margin: 0;
+    padding: 0;
+    color: #4A3E63; /* Darker lavender text for readability */
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    color: #5332a5; /* Lavender shade for headings */
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.main {
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #FFFFFF; /* White container background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.heading {
+    margin-bottom: 20px;
+}
+
+.graph, .expenses, .exp_form {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #ECE5FF; /* Lavender accent */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bar-chart {
+    padding: 10px;
+}
+
+.plotly_chart {
+    height: 400px;
+}
+
+.expenses {
+    padding: 10px;
+}
+
+.exp_list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F7F3FF; /* Lighter lavender background for expense items */
+    padding: 10px;
+    border: 1px solid #D4C5EE;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.exp_list .left h2, .exp_list .right h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.exp_list .date {
+    font-size: 0.9rem;
+    color: #6B5A82;
+}
+
+.exp_form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.exp_form h2 {
+    margin-bottom: 20px;
+}
+
+.exp_form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #4A3E63;
+}
+
+.exp_form input, .exp_form select, .exp_form button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #D4C5EE;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #FFFFFF; /* White input background */
+    color: #4A3E63;
+    width: 100%;
+    max-width: 400px;
+}
+
+.exp_form button {
+    background-color: #7E6AA2; /* Lavender button color */
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.exp_form button:hover {
+    background-color: #5A4E79;
+}
+
+.lower {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .exp_list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .exp_list .right {
+        margin-top: 10px;
+    }
+}

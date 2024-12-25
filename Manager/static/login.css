@@ -1,0 +1,103 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient Background */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+/* Form Container */
+.form-container {
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 30px 40px;
+    max-width: 400px;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.form-container:hover {
+    transform: translateY(-10px);
+}
+
+/* Form Styling */
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Inputs */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Input Focus Styling */
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #ff7e5f;
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff7e5f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #feb47b;
+}
+
+/* Error Message Styling */
+p {
+    color: #ff4d4d;
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 20px 30px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    button {
+        font-size: 1.1em;
+    }
+}

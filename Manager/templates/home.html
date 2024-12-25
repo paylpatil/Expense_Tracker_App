@@ -1,0 +1,25 @@
+{% load static %}
+<html>
+	<head>
+		<title>Home</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+	</head>
+	<body>
+	{% block content %}
+		{% if user.is_authenticated %}
+    			<h2>Welcome, {{ user.username }}!</h2>
+				<a href="{%url 'expenses' %}"> Open Expenses </a>
+		{% else %}
+		<div class="home">
+			<h2>Welcome! <br> 
+				<div class="reg">
+				<a href="{% url 'register' %}">Register</a> 
+				</div>
+				<div class="log">
+				<a href="{% url 'login' %}">Login</a>
+				</div>
+			</div>
+		{% endif %}
+	{% endblock %}
+	</body>
+</html>

@@ -1,0 +1,42 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}">
+</head>
+
+{% block content %}
+<form method="post">  <!-- Corrected 'from' to 'form' -->
+  {% csrf_token %} <!-- It's a good practice to include the CSRF token in forms -->
+  <div class="container">
+    <div class="form-container">
+      <div class="form">
+        <h2 style="text-align: center;"> Sign Up </h2> <!-- Fixed colon inside style -->
+        
+        <!-- Display the username field -->
+        {{ form.username.label_tag }}
+        <br>
+        {{ form.username }}
+        <br>
+        
+        <!-- Display the first password field -->
+        {{ form.password1.label_tag }}
+        <br>
+        {{ form.password1 }}
+        <br>
+        
+        <!-- Display the second password field -->
+        {{ form.password2.label_tag }}
+        <br>
+        {{ form.password2 }}
+      </div>
+      <br>
+      
+      <!-- Submit button -->
+      <div class="button-container">
+        <button class="btn btn-primary" type="submit">
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}
